@@ -1,0 +1,140 @@
+{
+  "name": "nojealouzy_project1",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -48,
+        0
+      ],
+      "id": "db9da668-66bb-432b-b70a-f4dc3a43a7ab",
+      "name": "When chat message received",
+      "webhookId": "a5f9d407-b938-469c-8e6d-3c95bb9ad920"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=REQUEST: {{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "You are a helpful assistant"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "52ca73b3-d576-4636-ac06-900c5fe12bf6",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        80,
+        208
+      ],
+      "id": "fbbb9ac7-7ad8-4689-b6a1-851ff7384153",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "5QdCJicEYRRkzAfF",
+          "name": "OpenAi account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mqlXXU5u0QhlOGmt-jaFpTCaMYhFvlCJjyhEMX45zGY",
+          "mode": "list",
+          "cachedResultName": "GL Excelerate Career Fair - Bangalore - 18th Mar'23 - Participating Companies",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mqlXXU5u0QhlOGmt-jaFpTCaMYhFvlCJjyhEMX45zGY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 151738714,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mqlXXU5u0QhlOGmt-jaFpTCaMYhFvlCJjyhEMX45zGY/edit#gid=151738714"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        368,
+        208
+      ],
+      "id": "c566f93c-9b0d-4a58-aad2-8088d3e6142e",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "znGAZIHlycQyP0wC",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "52b6b152-77f9-4976-bfd8-2fe60f546c7b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9d3aba7d93b009bb8ae0d8260aacff27220368f0f0fa3b40d3dd11133adc8be0"
+  },
+  "id": "lLu9lDoEwyCi8iRQ",
+  "tags": []
+}
