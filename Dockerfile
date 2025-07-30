@@ -1,13 +1,10 @@
-# ✅ Use the official n8n image which already has n8n installed
+# Use the official n8n image
 FROM n8nio/n8n
 
-# ✅ Optional: Set up basic auth
+# Optional: Basic Auth if needed
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin
 ENV N8N_BASIC_AUTH_PASSWORD=admin
 
-# ✅ Expose port
+# Expose the default port
 EXPOSE 5678
-
-# ✅ Start n8n (no need to override if using base image)
-CMD ["n8n", "start"]
