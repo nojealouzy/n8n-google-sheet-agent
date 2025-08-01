@@ -1,10 +1,6 @@
 # n8n-google-sheet-agent
 Everyone use google sheets to perform slice and dice of their data, But we use n8n to automate that whole process of slice and dice. 
 
-Great! Based on your project JSON (`nojealouzy_project1.json`), I will now generate a beautifully structured `README.md` for your project.
-
----
-
 ## Project Title: **n8n + LangChain + Google Sheets: Agentic RAG Workflow**
 
 This project demonstrates a low-code **Retrieval-Augmented Generation (RAG)** pipeline using [n8n](https://n8n.io/) and [LangChain](https://www.langchain.com/) with Google Sheets integration. It acts as an intelligent chatbot agent capable of responding to user queries using both OpenAI and data stored in Google Sheets.
@@ -23,7 +19,7 @@ This project demonstrates a low-code **Retrieval-Augmented Generation (RAG)** pi
 
 This project includes:
 
-* `TablesToAgenticRAG.json` → n8n workflow export file.
+* `nojealouzy_project1.json` → n8n workflow export file.
 * `Dockerfile` → for containerizing and deploying to platforms like Render.
 * `.env` or Render environment variables → securely store API keys.
 
@@ -32,13 +28,14 @@ This project includes:
 ### 🔧 Features
 
 Chat-triggered webhook
-Integration with OpenAI (GPT)
+Integration with OpenAI (GPT) chat model
 Secure access via basic authentication
 Reads dynamic data from Google Sheets
 Agentic response generation using LangChain agent
 Easily deployable using Docker
 
 ---
+### Installation
 
 ### Prerequisites
 
